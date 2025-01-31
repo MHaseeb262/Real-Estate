@@ -89,7 +89,7 @@ header nav .nav-links ul li a {
 header nav .nav-links ul li a:hover {
   color: #857867;
 }
-header nav .nav-links ul li a:active {
+header nav .nav-links ul li a.active {
   color: #FAFAFA;
 }
 header nav .nav-links .button {
