@@ -1,0 +1,25 @@
+// Mixins
+@mixin font-styling($family, $color, $size, $weight, $lh) {
+    font-family: $family;
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $lh;
+}
+
+@mixin form-btn($width, $pad, $bgColor, $border, $brRedius) {
+    width: $width;
+    padding: $pad;
+    background-color: $bgColor;
+    border: $border;
+    border-radius: $brRedius;
+}
+
+@mixin btn-basic($width, $pad, $bgColor, $border, $brRedius, $TA) {
+    width: $width;
+    padding: $pad;
+    background-color: $bgColor;
+    border: $border;
+    border-radius: $brRedius;
+    text-align: $TA;
+}

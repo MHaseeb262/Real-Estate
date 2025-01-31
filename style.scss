@@ -1,0 +1,1935 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+// Header
+header {
+    width: 100%;
+    padding: 17px 40px;
+    background-color: $dark-jungle-green;
+    position: fixed;
+    z-index: 1;
+
+    @media only screen and (max-width: 1024px) {
+        padding: 17px 20px;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @at-root {
+            .nav-brand-logo {
+                a {
+                    margin: 0;
+                    font-family: $primary-font;
+                    color: $Alabaster;
+                    font-size: 24px;
+                    line-height: 32px;
+                    text-decoration: none;
+
+                    @media only screen and (max-width: 1024px) {
+                        font-size: 21px;
+                    }
+
+                    &:hover {
+                        color: $brownish-grey;
+                    }
+                }
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 41px;
+
+            @media only screen and (max-width: 900px) {
+                display: none;
+            }
+
+            ul {
+                margin: 0;
+                display: flex;
+                gap: 41px;
+                list-style-type: none;
+
+                li {
+                    a {
+                        @include font-styling($primary-font, $dusty-grey, 16px, 600, 24px);
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $brownish-grey;
+                        }
+
+                        &:active {
+                            color: $Alabaster;
+                        }
+                    }
+                }
+            }
+
+            .button {
+                @include btn-basic(180px, 12px 0 8px 0, transparent, 1px solid $dusty-grey, 3px, center);
+
+                a {
+                    @include font-styling($primary-font, $dusty-grey, 16px, 600, 24px);
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    background-color: $dusty-grey;
+                    border-color: $brownish-grey;
+
+                    a {
+                        color: $dark-jungle-green;
+                    }
+                }
+            }
+        }
+
+        img {
+            display: none;
+
+            @media only screen and (max-width: 900px) {
+                display: block;
+            }
+        }
+
+    }
+
+}
+
+// index.html start 
+.company-intro-section {
+    position: relative;
+    top: 80px;
+    padding: 120px 0 60px 0;
+
+    @at-root {
+        .container {
+            max-width: 1200px !important;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .sub-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+        }
+    }
+
+    .build-your-bussiness {
+        align-items: center;
+        gap: 41px;
+
+        @media only screen and (max-width: 1042px) {
+            flex-direction: column-reverse;
+        }
+
+        .real-estate-landing-program {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            @media only screen and (max-width: 1042px) {
+                width: 100%;
+            }
+
+            @at-root {
+                .main-heading {
+                    @include font-styling($primary-font, $dark-jungle-green, 32px, 700, 40px);
+                    margin: 0;
+                }
+            }
+
+            .detail {
+                @include font-styling($primary-font, $dark-jungle-green, 16px, 500, 24px);
+                margin: 0;
+            }
+
+            .user-identity {
+                display: flex;
+                gap: 32px;
+
+                @media only screen and (max-width: 400px) {
+                    flex-direction: column;
+                }
+
+                .button {
+                    @include btn-basic(166px, 12px 0 8px 0, $dusty-grey, 1px solid $brownish-grey, 3px, center);
+
+                    a {
+                        @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        background-color: $brownish-grey;
+                        border-color: $dusty-grey;
+                    }
+                }
+
+                .borrower {
+                    width: 192px;
+                }
+            }
+
+        }
+
+        .section-img {
+            height: 532px;
+            position: relative;
+
+            @media only screen and (max-width: 550px) {
+                width: 100%;
+            }
+
+            img {
+                transition: box-shadow 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 4px 10px rgba(31, 43, 43, 0.24);
+                    /* Drop shadow */
+                }
+            }
+
+            .lower-img {
+                @media only screen and (max-width: 550px) {
+                    width: 100%;
+                }
+            }
+
+            .upper-img {
+                position: absolute;
+                top: 208px;
+                left: 41px;
+
+                @media only screen and (max-width: 550px) {
+                    width: 47%;
+                }
+            }
+        }
+    }
+}
+
+.overview-projects-section {
+    position: relative;
+    top: 80px;
+    padding: 60px 0 120px;
+
+    .overview-projects {
+        gap: 21px;
+
+        @media only screen and (max-width: 1042px) {
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .our-projects {
+            max-width: 432px;
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+            row-gap: 22px;
+
+            @media only screen and (max-width: 433px) {
+                grid-template-columns: auto;
+            }
+
+            .project {
+                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 11px;
+
+                &:hover {
+                    .sub-heading {
+                        color: $dark-jungle-green;
+                    }
+                }
+
+                @at-root {
+                    .sub-heading {
+                        margin: 0;
+                        @include font-styling($primary-font, $dusty-grey, 24px, 700, 32px);
+                    }
+                }
+            }
+        }
+
+        .project-detail-carousel {
+            max-width: 700px;
+            padding: 32px 40px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 25px;
+            background-color: $off-dusty-grey;
+            overflow-x: auto;
+
+            .carousel-inner {
+                .carousel-item {
+
+                    .main-heading {
+                        margin-bottom: 21px;
+                    }
+
+                    .project-detail {
+                        @include font-styling($primary-font, $dark-jungle-green, 16px, 500, 24px);
+                    }
+                }
+            }
+
+            .carousel-bottom {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                /* Position indicators to the bottom-left */
+                .custom-indicators {
+                    position: unset;
+                    gap: 12px;
+                    align-items: center;
+                    justify-content: unset;
+                    margin: 0;
+                    z-index: 0;
+
+                    button {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background-color: $dusty-grey;
+                        border: none;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease, transform 0.3s ease;
+                    }
+
+                    /* Active dot style */
+                    button.active {
+                        width: 15px;
+                        height: 15px;
+                        background-color: $brownish-grey;
+                        transform: scale(1.2);
+                    }
+                }
+
+                .carousel-btn {
+                    display: flex;
+                    gap: 12px;
+                    margin: 0;
+
+                    .btn-customization {
+                        position: unset;
+                        width: 68px;
+                        height: 68px;
+                        z-index: 0;
+                        background-color: $Alabaster;
+
+                        .carousel-control-prev-icon {
+                            background-image: none;
+                        }
+                    }
+
+                    .carousel-control-prev {
+                        position: unset;
+
+                        &:not(:disabled):hover {
+                            background-color: $dusty-grey;
+
+                            svg {
+                                path {
+                                    fill: $Alabaster;
+                                }
+                            }
+                        }
+
+                        &:not(:disabled):active {
+                            background-color: $brownish-grey;
+                        }
+
+                        &:disabled {
+                            background-color: transparent;
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    .carousel-control-next {
+                        position: unset;
+
+                        &:not(:disabled):hover {
+                            background-color: $dusty-grey;
+
+                            svg {
+                                path {
+                                    fill: $Alabaster;
+                                }
+                            }
+                        }
+
+                        &:not(:disabled):active {
+                            background-color: $brownish-grey;
+                        }
+
+                        &:disabled {
+                            background-color: transparent;
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.lending-criteria-section {
+    position: relative;
+    top: 80px;
+    padding: 80px 0;
+    background-image: url(images/bg-img-01.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .lending-criteria {
+        flex-direction: column;
+        gap: 32px;
+
+        .main-heading {
+            color: $Alabaster;
+        }
+
+        .detail {
+            max-width: 590px;
+            margin: 0;
+            @include font-styling($primary-font, $Alabaster, 16px, 500, 24px);
+        }
+
+        .user-identity {
+            display: flex;
+            gap: 32px;
+
+            @media only screen and (max-width: 400px) {
+                flex-direction: column;
+            }
+
+            .button {
+                @include btn-basic(182px, 12px 0 8px 0, transparent, 1px solid $Alabaster, 3px, center);
+
+                a {
+                    @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    background-color: $Alabaster;
+                    border-color: $brownish-grey;
+
+                    a {
+                        color: $brownish-grey;
+                    }
+                }
+            }
+
+            .borrower {
+                width: 208px;
+            }
+        }
+    }
+}
+
+.blog-section {
+    position: relative;
+    top: 80px;
+    padding: 60px 0;
+
+    .blog-container {
+        flex-direction: column;
+        gap: 30px;
+
+        .blog-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .sub-heading {
+                color: $dark-jungle-green;
+            }
+
+            .visit-blog {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+
+                @at-root {
+                    .blog-btn {
+                        margin: 0;
+
+                        a {
+                            @include font-styling($primary-font, $dusty-grey, 16px, 600, 24px);
+                            text-decoration: none;
+
+                            &:hover {
+                                color: $brownish-grey;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @at-root {
+            .blog-articles {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                gap: 30px 21px;
+
+                @media only screen and (max-width: 899px) {
+                    grid-template-columns: auto;
+                    justify-content: center;
+                }
+
+                @media only screen and (min-width: 900px) and (max-width: 1199px) {
+                    grid-template-columns: auto auto;
+                    justify-content: center;
+                }
+
+                .article {
+                    background-color: $spring-wood;
+                    transition: box-shadow 0.5s ease;
+
+                    &:hover {
+                        box-shadow: 10px 10px 10px rgba(31, 43, 43, 0.1);
+                    }
+
+                    @media only screen and (max-width: 899px) {
+                        width: 100%;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .article-detail {
+                        padding: 21px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 11px;
+
+                        @at-root {
+                            .article-head {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                .title {
+                                    margin: 0;
+                                    @include font-styling($primary-font, $Dusky-blue-green, 14px, 600, 20px);
+                                }
+
+                                .about-author {
+                                    margin: 0;
+                                    @include font-styling($primary-font, $dusty-grey, 14px, 500, 20px);
+                                }
+                            }
+
+                            .sub-heading {
+                                color: $dark-jungle-green;
+                            }
+
+                            .article-info {
+                                @include font-styling($primary-font, $dark-jungle-green, 16px, 400, 24px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.why-choosing-everpeak-section {
+    position: relative;
+    top: 80px;
+    padding-bottom: 60px;
+
+    .why-choosing-everpeak {
+        justify-content: space-between;
+        gap: 30px;
+
+        @media only screen and (max-width: 899px) {
+            flex-direction: column;
+        }
+
+
+        .loan-processing-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .loan-process-head {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+
+                @media only screen and (max-width: 549px) {
+                    flex-direction: column;
+                }
+
+                .sub-heading {
+                    color: $dark-jungle-green;
+                }
+
+                .nav-brand-logo {
+                    p {
+                        margin: 0;
+                        color: $dark-jungle-green;
+                        font-family: $primary-font;
+                        font-size: 24px;
+                        line-height: 32px;
+                    }
+                }
+            }
+
+            .info {
+                margin: 0;
+                @include font-styling($primary-font, $dark-jungle-green, 16px, 500, 24px);
+            }
+
+            .processing-step {
+                padding: 8px 30px 8px 12px;
+                background-color: $Dawn-Pink;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .step-head {
+                    display: flex;
+                    gap: 11px;
+
+                    .count {
+                        margin: 0;
+                        @include font-styling($primary-font, $brownish-grey, 24px, 700, 24px);
+                    }
+
+                    .title {
+                        margin: 0;
+                        @include font-styling($primary-font, $brownish-grey, 18px, 700, 24px);
+                    }
+                }
+
+                .step-info {
+                    margin: 0;
+                    @include font-styling($primary-font, $dark-jungle-green, 16px, 500, 24px);
+                }
+            }
+
+            .button {
+                @include btn-basic(180px, 12px 0 8px 0, $dusty-grey, 1px solid $brownish-grey, 3px, center);
+
+                a {
+                    @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    background-color: $brownish-grey;
+                    border-color: $dusty-grey;
+                }
+            }
+        }
+
+        img {
+            height: 448px;
+
+            @media only screen and (max-width: 899px) {
+                width: 50%;
+                height: auto;
+            }
+        }
+    }
+}
+
+.our-private-property-section {
+    position: relative;
+    top: 80px;
+    padding: 60px 0;
+
+    .our-private-property {
+        flex-direction: column;
+        gap: 30px;
+
+        .main-heading {
+
+            @media only screen and (max-width: 899px) {
+                font-size: 24px;
+                line-height: 32px;
+                text-align: center;
+            }
+        }
+
+        .private-property-cards {
+            .custom-carousel-inner {
+                display: flex;
+                gap: 21px;
+
+                .custom-carousel-item {
+                    margin: 0;
+                    display: block;
+                    transition: transform 0.5s ease; // Ensures smooth animation
+
+                    .carousel-card-detail {
+                        padding: 24px;
+                        background-color: $Dawn-Pink;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 21px;
+
+                        .about-loan {
+                            display: grid;
+                            grid-template-columns: 50% 50%;
+                            gap: 24px;
+
+                            p {
+                                margin: 0;
+                                @include font-styling($primary-font, $brownish-grey, 16px, 700, 24px);
+
+                                span {
+                                    @include font-styling($primary-font, $dark-jungle-green, 16px, 500, 24px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btn-customization {
+                background-color: $dusty-grey;
+                width: 68px;
+                height: 68px;
+                top: 41%;
+                opacity: 1;
+                z-index: 0;
+
+                &:hover {
+                    background-color: $brownish-grey;
+                }
+            }
+
+            .left-btn {
+                left: 21px;
+            }
+
+            .right-btn {
+                right: 21px;
+            }
+        }
+    }
+}
+
+.investor-section {
+    position: relative;
+    top: 80px;
+    padding: 40px 0;
+    margin-bottom: 60px;
+    background: linear-gradient(0deg, rgba(31, 43, 43, 0.2), rgba(31, 43, 43, 0.2)), url(images/bg-img-02.webp) center / cover no-repeat padding-box;
+
+    .investor-container {
+        padding: 0 12px;
+
+        form {
+            width: 693px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+
+            .investor-form {
+                width: 100%;
+                background-color: $off-Dawn-Pink;
+                display: flex;
+                flex-direction: column;
+                padding: 24px;
+                gap: 21px;
+
+                .sub-heading {
+                    color: $dark-jungle-green;
+                    text-transform: uppercase;
+                }
+
+                .input-box {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    gap: 21px 32px;
+
+                    @media only screen and (max-width: 699px) {
+                        grid-template-columns: auto;
+                        gap: 21px;
+                    }
+
+                    input {
+                        padding: 11px;
+                        background-color: $Alabaster;
+                        border: none;
+                        outline: none;
+                        border-radius: 3px;
+
+                        @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                        letter-spacing: 0.02em;
+                    }
+                }
+
+                select {
+                    width: 100%;
+                    padding: 11px;
+                    border: 0;
+                    border-radius: 3px;
+                    outline: 0;
+
+                    @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                    letter-spacing: 0.02em;
+                }
+
+                .confirmation {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    gap: 32px;
+
+                    @media only screen and (max-width: 699px) {
+                        grid-template-columns: auto;
+                        gap: 32px;
+                    }
+
+                    .deals {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+
+                        .title {
+                            text-transform: none;
+                            @include font-styling($primary-font, $dark-jungle-green, 14px, 400, 14px);
+                            letter-spacing: 0.02em;
+                        }
+
+                        .radio-btn {
+                            display: flex;
+                            gap: 11px;
+
+                            label {
+                                @include font-styling($primary-font, $dark-jungle-green, 14px, 400, 14px);
+                                letter-spacing: 0.02em;
+                            }
+                        }
+                    }
+                }
+
+                textarea {
+                    width: 100%;
+                    padding: 11px;
+                    border: none;
+                    outline: none;
+                    border-radius: 3px;
+                    resize: none;
+
+                    @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                    letter-spacing: 0.02em;
+                }
+            }
+
+            button {
+                @include btn-basic(185px, 12px 0 8px 0, transparent, 1px solid $Alabaster, 3px, center);
+                @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+
+                &:hover {
+                    background-color: $Alabaster;
+                    color: $brownish-grey;
+                    border: 1px solid $brownish-grey;
+                }
+            }
+        }
+    }
+}
+
+// index.html end
+
+// about.html start 
+
+.about-us-section {
+    position: relative;
+    top: 80px;
+    padding: 80px 0 40px;
+
+    .about-us {
+        align-items: flex-end;
+        gap: 11px;
+
+        @media only screen and (max-width: 1024px) {
+            padding: 21px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 21px;
+            text-align: center;
+        }
+
+
+        .about-us-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .main-heading {
+                text-transform: uppercase;
+            }
+
+            @at-root {
+                .title {
+                    @include font-styling($primary-font, $dark-jungle-green, 16px, 600, 24px);
+                    text-transform: uppercase;
+                }
+
+                .info {
+                    @include font-styling($primary-font, $brownish-grey, 16px, 500, 24px);
+                }
+
+                .detail {
+                    @include font-styling($primary-font, $dark-jungle-green, 16px, 400, 24px)
+                }
+            }
+        }
+
+        .section-img {
+            max-width: 386px;
+
+            img {
+                @media only screen and (max-width: 430px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+.our-mission-section {
+    position: relative;
+    top: 80px;
+    padding: 40px 0;
+
+    .our-mission {
+        gap: 93px;
+        align-items: flex-end;
+
+        @media only screen and (max-width: 1024px) {
+            padding: 21px;
+            flex-direction: column;
+        }
+
+        .our-mission-container {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+            background-color: $Dawn-Pink;
+        }
+
+        @at-root {
+            .contect-info {
+                max-width: 285px;
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
+                align-items: end;
+
+                .contact-head {
+                    @include font-styling($primary-font, $brownish-grey, 16px, 600, 24px);
+                }
+
+                .contact-num {
+                    @include font-styling($primary-font, $dusty-grey, 16px, 400, 24px);
+                }
+
+                .contact-eMail {
+                    @extend .contact-num;
+                }
+            }
+        }
+    }
+
+}
+
+.different-about-everpeak-section {
+    position: relative;
+    top: 80px;
+    padding: 40px 0 80px;
+
+    .different-about-everpeak {
+        flex-direction: column;
+        gap: 32px;
+
+        @media only screen and (max-width: 1024px) {
+            padding: 21px;
+        }
+
+        .key-difference-head {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            @media only screen and (max-width: 1024px) {
+                flex-direction: column;
+            }
+
+            .sub-heading {
+                color: $dark-jungle-green;
+            }
+
+            .nav-brand-logo {
+                p {
+                    color: $dark-jungle-green;
+                    font-family: $primary-font;
+                    font-size: 24px;
+                    line-height: 32px;
+                }
+            }
+        }
+
+        .key-difference-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 32px 21px;
+
+            @media only screen and (max-width: 799px) {
+                grid-template-columns: auto;
+                gap: 32px;
+            }
+
+            .key-difference {
+                padding: 21px;
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
+                border: none;
+                border-radius: 3px;
+                background-color: $spring-wood;
+
+                .head {
+                    display: flex;
+                    gap: 11px;
+
+                    p {
+                        @include font-styling($primary-font, $brownish-grey, 18px, 700, 24px);
+                    }
+                }
+
+                .detail {
+                    @include font-styling($primary-font, $dark-jungle-green, 16px, 400, 24px);
+                }
+            }
+        }
+    }
+}
+
+// about.html end 
+
+// programs.html start 
+
+.our-programs-section {
+    position: relative;
+    top: 80px;
+    padding: 80px 0 40px;
+
+    .our-programs {
+        flex-direction: column;
+        gap: 46px;
+
+        @media only screen and (max-width: 1024px) {
+            padding: 21px;
+            text-align: center;
+        }
+
+        .our-programs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .main-heading {
+                text-transform: uppercase;
+            }
+        }
+
+        .section-img {
+            @media only screen and (max-width: 1199px) {
+                width: 100%;
+            }
+
+            img {
+                @media only screen and (max-width: 1199px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+    }
+}
+
+.private-loan-section {
+    position: relative;
+    top: 80px;
+    padding-bottom: 41px;
+
+    @media only screen and (max-width: 1024px) {
+        padding: 21px;
+    }
+
+    .private-loan-programs {
+        flex-direction: column;
+        gap: 41px;
+
+        .private-loan-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            text-align: center;
+
+            .sub-heading {
+                color: $dark-jungle-green;
+            }
+
+            .loan-programs {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                gap: 32px 21px;
+
+                @media only screen and (max-width: 599px) {
+                    grid-template-columns: auto;
+                    gap: 30px;
+                }
+
+                @media only screen and (min-width: 600px) and (max-width: 899px) {
+                    grid-template-columns: auto auto;
+                    gap: 30px 21px;
+                }
+
+                @media only screen and (min-width: 900px) and (max-width: 1199px) {
+                    grid-template-columns: auto auto auto;
+                    gap: 30px 21px;
+                }
+
+                .program {
+                    padding: 21px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 11px;
+                    background-color: $spring-wood;
+                    border-bottom: 1px solid $dusty-grey;
+
+                    .head {
+                        @include font-styling($primary-font, $brownish-grey, 18px, 700, 24px);
+                    }
+
+                    .info {
+                        @include font-styling($primary-font, $dusty-grey, 14px, 600, 24px);
+                    }
+                }
+            }
+        }
+
+        .section-img {
+            @media only screen and (max-width: 1199px) {
+                width: 100%;
+            }
+
+            img {
+                @media only screen and (max-width: 1199px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+}
+
+.commercial-loan-section {
+    position: relative;
+    top: 80px;
+    padding-bottom: 80px;
+
+    @media only screen and (max-width: 1024px) {
+        padding: 21px;
+    }
+
+    .commercial-loan-programs {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+
+        .sub-heading {
+            color: $dark-jungle-green;
+        }
+
+        .commercial-program-container {
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 32px 21px;
+
+            @media only screen and (max-width: 799px) {
+                grid-template-columns: auto;
+                gap: 30px;
+            }
+
+            @media only screen and (min-width: 800px) and (max-width: 1199px) {
+                grid-template-columns: auto auto;
+                gap: 30px 21px;
+            }
+
+            .commercial-program {
+                padding: 21px;
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
+                background-color: $Egg-shell;
+                border-bottom: 1px solid $Dusky-blue-green;
+
+                .head {
+                    @include font-styling($primary-font, $Dusky-blue-green, 18px, 700, 24px);
+                }
+
+                .info {
+                    @include font-styling($primary-font, $Dusky-blue-green, 14px, 600, 24px);
+                }
+            }
+        }
+    }
+}
+
+// programs.html end 
+
+// blog.html start 
+
+.blog-screen {
+    position: relative;
+    top: 80px;
+    padding: 80px 0 41px;
+
+    .blog {
+        flex-direction: column;
+        gap: 60px;
+
+        @media only screen and (max-width: 1199px) {
+            padding: 21px;
+        }
+
+        .main-heading {
+            text-transform: uppercase;
+            padding-left: 100px;
+
+            @media only screen and (max-width: 1024px) {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+.blog-form {
+    position: relative;
+    top: 80px;
+    padding-bottom: 60px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+        border: none;
+        border-radius: 5px;
+        background-color: $Dawn-Pink;
+
+
+        .title {
+            text-align: center;
+        }
+
+        .sub-title {
+            color: $brownish-grey;
+        }
+
+        .input-fields {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 11px;
+
+            @media only screen and (max-width: 799px) {
+                grid-template-columns: auto;
+            }
+
+            @media only screen and (min-width: 800px) and (max-width: 1199px) {
+                grid-template-columns: auto auto;
+            }
+
+            input {
+                padding: 11px;
+                border: none;
+                border-radius: 3px;
+                outline: none;
+
+                @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                letter-spacing: 0.02em;
+            }
+
+            select {
+                @extend input;
+                color: $dark-jungle-green;
+            }
+        }
+
+        .form-info {
+            @include font-styling($primary-font, $brownish-grey, 12px, 400, 16px);
+            letter-spacing: 0.02em;
+        }
+
+        button {
+            @include btn-basic(100%, 12px 0 8px, $Dusky-blue-green, 1px solid $brownish-grey, 1px, center);
+            @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: $dark-jungle-green;
+            }
+        }
+    }
+}
+
+.program-article-section {
+    position: relative;
+    top: 80px;
+    padding-bottom: 80px;
+
+    @media only screen and (max-width: 1199px) {
+        padding: 21px;
+    }
+
+    .program-articles {
+        flex-direction: column;
+        gap: 21px;
+
+        .customization-list {
+            width: 100%;
+            padding: 21px;
+            background-color: $Egg-shell;
+            overflow-x: auto;
+
+            .btn-links {
+                width: 1441px;
+                display: flex;
+                gap: 21px;
+
+            }
+
+            .button {
+                @include btn-basic(unset, 12px 32px 8px, transparent, 1px solid $brownish-grey, 3px, center);
+
+                a {
+                    @include font-styling($primary-font, $brownish-grey, 14px, 600, 20px);
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+
+                &:hover {
+                    background-color: $dusty-grey;
+                    border-color: $Egg-shell;
+
+                    a {
+                        color: $Egg-shell;
+                    }
+                }
+
+                &:active {
+                    background-color: $brownish-grey;
+                    border-color: $Alabaster;
+
+                    a {
+                        color: $Alabaster;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// blog.html end 
+
+// article.html start 
+
+.article-section {
+    position: relative;
+    top: 80px;
+    padding: 60px 0 41px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media only screen and (max-width: 1199px) {
+        padding: 21px;
+    }
+
+    .article-screen {
+        flex-direction: column;
+        gap: 21px;
+
+        .go-back-btn {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+
+            img {
+                width: 10px;
+                height: 16px;
+            }
+
+            a {
+                @include font-styling($primary-font, $brownish-grey, 16px, 600, 24px);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .section-img {
+            @media only screen and (max-width: 1199px) {
+                width: 100%;
+            }
+
+            img {
+                @media only screen and (max-width: 1199px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .blog-article-title {
+            padding: 21px;
+            background-color: $spring-wood;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .article-head {
+                gap: 25px;
+                justify-content: start;
+
+                @media only screen and (max-width: 499px) {
+                    flex-direction: column;
+                    align-items: start;
+                }
+            }
+        }
+    }
+
+    .blog-article {
+        display: flex;
+        flex-direction: column;
+        gap: 41px;
+        margin: 0 auto;
+        max-width: 1000px;
+
+        .subtitle {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .highlight {
+                color: $brownish-grey;
+            }
+        }
+    }
+}
+
+.highlight-section {
+    position: relative;
+    top: 80px;
+    padding: 60px 0;
+    background-color: $Dawn-Pink;
+
+    @media only screen and (max-width: 1199px) {
+        padding: 21px;
+    }
+
+    .highlight-quotes {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .article-info {
+        color: $brownish-grey;
+    }
+
+    .button {
+        @include btn-basic(167px, 12px 0 8px 0, $dusty-grey, 1px solid $brownish-grey, 3px, center);
+
+        a {
+            @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: $brownish-grey;
+            border-color: $dusty-grey;
+        }
+    }
+}
+
+.blog-section {
+    @media only screen and (max-width: 1199px) {
+        padding: 21px;
+    }
+}
+
+// article.html end 
+
+// apply.html start 
+
+.section-for-apply {
+    position: relative;
+    top: 80px;
+    padding: 60px 0 41px;
+
+    @media only screen and (max-width: 1024px) {
+        padding: 21px;
+    }
+
+    .main-body {
+        max-width: 1050px !important;
+        gap: 11px;
+        align-items: flex-end;
+
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .get-pre-qualified {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            .form-wrapper {
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 21px;
+                background-color: $Dawn-Pink;
+
+                .input-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    label {
+                        @include font-styling($primary-font, $dark-jungle-green, 14px, 400, 14px);
+                        letter-spacing: 0.2px;
+                    }
+
+                    select {
+                        padding: 11px;
+                        display: flex;
+                        gap: 11px;
+                        border: none;
+                        outline: none;
+                        border-radius: 2px;
+
+                        @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                        background-color: $Alabaster;
+                        letter-spacing: 0.2px;
+                    }
+                }
+
+                .loan-requirments {
+                    padding: 21px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 21px;
+                    background-color: $off-white;
+                    border: 1px solid $dusty-grey;
+
+                    .requirment-highlight {
+                        @include font-styling($primary-font, $brownish-grey, 14px, 400, 24px);
+                        letter-spacing: 0.2px;
+                    }
+
+                    .get-amount {
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        gap: 21px 32px;
+
+                        @media only screen and (max-width: 699px) {
+                            grid-template-columns: auto;
+                            gap: 21px;
+                        }
+
+                        .input-amount {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+
+                            label {
+                                @include font-styling($primary-font, $dark-jungle-green, 14px, 400, 14px);
+                                letter-spacing: 0.2px;
+                            }
+
+                            .enter-amount {
+                                display: flex;
+
+                                .currency {
+                                    padding: 11px;
+                                    background-color: $Alabaster;
+                                    border: none;
+                                    border-radius: 2px 0 0 2px;
+
+                                    @include font-styling($primary-font, $brownish-grey, 16px, 500, 24px);
+                                }
+
+                                .input-loan-amount {
+                                    width: 100%;
+                                    border-radius: 0 2px 2px 0;
+                                    border: none;
+                                    outline: none;
+                                    background-color: $Alabaster;
+
+                                    @include font-styling($primary-font, $Dusky-blue-green, 16px, 400, 24px);
+                                    letter-spacing: 0.2px;
+                                }
+                            }
+                        }
+
+                        .loan-to-value {
+                            @include font-styling($primary-font, $brownish-grey, 16px, 500, 24px);
+
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+
+                            @media only screen and (max-width: 1024px) {
+                                width: 50%;
+                            }
+
+                            @media only screen and (max-width: 699px) {
+                                width: 100%;
+                            }
+
+                            .LTV-amount {
+                                width: 100%;
+                                padding: 11px;
+                                background-color: $off-dusty-grey;
+                                border-radius: 2px;
+                                border: none;
+                                outline: none;
+
+                                @include font-styling($primary-font, $Dusky-blue-green, 16px, 400, 24px);
+                            }
+
+                        }
+
+                        .loan-term {
+                            @extend .input-amount;
+
+                            .loan-term-input {
+                                padding: 11px;
+                                border-radius: 2px;
+                                border: none;
+                                outline: none;
+                                background-color: $Alabaster;
+
+                                @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                                letter-spacing: 0.2px;
+                            }
+                        }
+                    }
+                }
+
+                .user-info {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    gap: 21px 32px;
+
+                    @media only screen and (max-width: 699px) {
+                        grid-template-columns: auto;
+                        gap: 21px;
+                    }
+
+                    .about-user {
+                        padding: 11px;
+                        border-radius: 2px;
+                        border: none;
+                        outline: none;
+                        background-color: $Alabaster;
+
+                        @include font-styling($primary-font, $Dusky-blue-green, 14px, 400, 14px);
+                        letter-spacing: 0.2px;
+
+                        @media only screen and (max-width: 699px) {
+                            width: 100%;
+                        }
+
+                    }
+                }
+
+                .imp-info-about-loan {
+                    @include font-styling($primary-font, $brownish-grey, 12px, 400, 16px);
+                    letter-spacing: 0.2px;
+
+                    &:hover {
+                        font-weight: 500;
+                        text-decoration: underline;
+                    }
+
+                    @media only screen and (max-width: 699px) {
+                        text-align: center;
+                    }
+                }
+
+                button {
+                    @include form-btn(138px, 12px 0 8px, $dusty-grey, 1px solid $brownish-grey, 3px);
+                    @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+
+                    &:hover {
+                        background-color: $brownish-grey;
+                        border: 1px solid $dusty-grey;
+                    }
+                }
+            }
+        }
+
+        .real-estate-detail {
+            max-width: 449px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            @media only screen and (min-width: 700px) and (max-width: 1024px) {
+                align-items: center;
+                max-width: 100%;
+                flex-direction: row;
+            }
+
+            img {
+                width: 100%;
+                height: 472px;
+            }
+
+            .detail-info {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+
+                @media only screen and (min-width: 700px) and (max-width: 1024px) {
+                    gap: 30px;
+                }
+
+                .detail-para {
+                    @include font-styling($primary-font, $dark-jungle-green, 16px, 400, 24px);
+                }
+
+                .contect-info {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// apply.html end 
+
+// Footer
+footer {
+    padding: 80px 0 40px;
+    position: relative;
+    top: 80px;
+    background-color: $dark-jungle-green;
+
+    .footer-container {
+        padding: 0 21px;
+        flex-direction: column;
+        gap: 32px;
+
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+
+            @media only screen and (max-width: 900px) {
+                flex-direction: column;
+                gap: 41px;
+            }
+
+            .brand-info {
+                display: flex;
+                flex-direction: column;
+                gap: 21px;
+
+                .footer-brand-logo {
+                    a {
+                        margin: 0;
+                        font-family: $primary-font;
+                        color: $Alabaster;
+                        font-size: 24px;
+                        line-height: 24px;
+
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $brownish-grey;
+                        }
+                    }
+                }
+
+                .footer-contect-num {
+                    margin: 0;
+                    @include font-styling($primary-font, $Alabaster, 16px, 400, 24px);
+                }
+
+                .our-address {
+                    margin: 0;
+                    @include font-styling($primary-font, $Alabaster, 16px, 500, 24px);
+                }
+
+                .footer-contect-email {
+                    margin: 0;
+                    @extend .footer-contect-num;
+                }
+            }
+
+            .footer-links {
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                    list-style-type: none;
+
+                    li {
+                        a {
+                            @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+                            text-decoration: none;
+
+                            &:hover {
+                                color: $dusty-grey;
+                            }
+
+                            &:active {
+                                color: $brownish-grey;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .user-identity {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+
+                .button {
+                    @include btn-basic(208px, 12px 0 8px 0, transparent, 1px solid $Alabaster, 3px, center);
+
+                    a {
+                        @include font-styling($primary-font, $Alabaster, 16px, 600, 24px);
+                        text-decoration: none;
+                    }
+
+                    &:hover {
+                        background-color: $dusty-grey;
+                        border-color: $brownish-grey;
+
+                        a {
+                            color: $dark-jungle-green;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid $Dusky-blue-green;
+            display: flex;
+            justify-content: space-between;
+
+            @media only screen and (max-width: 599px) {
+                flex-direction: column;
+                gap: 21px;
+            }
+
+            .copyRight {
+                margin: 0;
+                @include font-styling($primary-font, $dusty-grey, 14px, 500, 20px);
+            }
+
+            .policies {
+                display: flex;
+                gap: 12px;
+
+                p {
+                    margin: 0;
+
+                    a {
+                        @extend .copyRight;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
