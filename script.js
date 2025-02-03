@@ -123,31 +123,53 @@ carousel.addEventListener("slide.bs.carousel", updateButtonStates);
 
 // Initialize button states
 updateButtonStates();
-
-
 // Our projects card slider carousel
-document.addEventListener("DOMContentLoaded", function () {
-    const prevButton = document.querySelector(".carousel-control-prev");
-    const nextButton = document.querySelector(".carousel-control-next");
-    const carouselItems = document.querySelectorAll(".custom-carousel-item");
-    
-    let currentTranslate = 0; // Track translation value
-    const moveDistance = 407; // The distance each item should move
+const carouselItems = document.querySelectorAll(".custom-carousel-item");
+const leftBtn = document.getElementById("left-btn");
+const rightBtn = document.getElementById("right-btn");
 
-    prevButton.addEventListener("click", function () {
-        currentTranslate -= moveDistance;
-        updateCarousel();
+let currentIndex = 0;
+const moveDistance = 407; // Distance to move each time
+
+// Function to update the sliding effect
+function updateCarousel() {
+    carouselItems.forEach((item, index) => {
+        item.style.transform = `translateX(${-currentIndex * moveDistance}px)`;
     });
 
-    nextButton.addEventListener("click", function () {
-        currentTranslate += moveDistance;
-        updateCarousel();
-    });
+    // Disable left button when at the first item
+    leftBtn.disabled = currentIndex === 0;
 
-    function updateCarousel() {
-        carouselItems.forEach(item => {
-            item.style.transform = `translateX(${currentTranslate}px)`;
-            item.style.transition = "transform 0.5s ease";
-        });
+    // Disable right button when at the last item
+    rightBtn.disabled = currentIndex === carouselItems.length - 3;
+
+    if (window.innerWidth <= 399) {
+        // Disable right button when at the last item
+        rightBtn.disabled = currentIndex === carouselItems.length - 1;
+    }
+
+    if (window.innerWidth >= 400 && window.innerWidth <= 799) {
+        // Disable right button when at the last item
+        rightBtn.disabled = currentIndex === carouselItems.length - 2;
+    }
+}
+
+// Move right
+rightBtn.addEventListener("click", () => {
+    if (currentIndex < carouselItems.length - 1) {
+        currentIndex++;
+        updateCarousel();
     }
 });
+
+// Move left
+leftBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+    }
+});
+
+// Initialize
+updateCarousel();
+

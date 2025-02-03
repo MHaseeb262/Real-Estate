@@ -691,6 +691,7 @@ header {
     padding: 60px 0;
 
     .our-private-property {
+        padding: 0;
         flex-direction: column;
         gap: 30px;
 
@@ -704,9 +705,15 @@ header {
         }
 
         .private-property-cards {
+            position: relative;
+
             .custom-carousel-inner {
+                width: 100%;
+                overflow: hidden;
                 display: flex;
                 gap: 21px;
+                transition: transform 0.5s ease-in-out;
+                will-change: transform;
 
                 .custom-carousel-item {
                     margin: 0;
@@ -749,13 +756,17 @@ header {
                 &:hover {
                     background-color: $brownish-grey;
                 }
+
+                &:disabled{
+                    cursor: not-allowed;
+                }
             }
 
-            .left-btn {
+            .carousel-control-prev {
                 left: 21px;
             }
 
-            .right-btn {
+            .carousel-control-next {
                 right: 21px;
             }
         }
